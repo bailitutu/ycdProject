@@ -1,0 +1,42 @@
+<form name="myForm" novalidate>
+  <div class="weui-cells-fg">
+    <label class="weui-cell">
+      <div class="weui-cell__hd"><label class="weui-label">姓名</label></div>
+      <div class="weui-cell__bd">
+        <input class="weui-input" ng-model="form.realName" name="realName" type="text" placeholder="请输入真实姓名" required>
+      </div>
+    </label>
+    <label class="weui-cell">
+      <div class="weui-cell__hd"><label class="weui-label">身份证</label></div>
+      <div class="weui-cell__bd">
+        <input class="weui-input" ng-model="form.sfz" name="sfz" type="text" placeholder="请输入身份证号码" required>
+      </div>
+    </label>
+    <!--<div class="weui-cell">
+      <div class="weui-cell__bd">
+        <div class="weui-uploader">
+          <div class="weui-uploader__hd">
+            <p class="weui-uploader__title">身份证照片</p>
+            <div class="weui-uploader__info">{{uploader.queue.length}}/2</div>
+          </div>
+          <div class="weui-uploader__bd">
+            <ul class="weui-uploader__files">
+              <li ng-repeat="item in uploader.queue" class="weui-uploader__file weui-uploader__file_status" ng-show="uploader.isHTML5" ng-thumb="{ file: item._file}">
+                <div class="weui-uploader__file-content">
+                  <i class="weui-icon-cancel" ng-show="!showProgress" ng-click="item.remove()"></i>
+                  <span ng-show="showProgress">{{item.progress}}%</span>
+                </div>
+              </li>
+            </ul>
+            <div class="weui-uploader__input-box">
+              <input nv-file-select uploader="uploader" class="weui-uploader__input" type="file" accept="image/*" multiple="">
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>-->
+  </div>
+  <div class="weui-btn-area">
+    <button ng-disabled="showProgress" ng-click="submit(myForm)">提交</button>
+  </div>
+</form>

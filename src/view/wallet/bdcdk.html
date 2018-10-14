@@ -1,0 +1,21 @@
+<form name="myForm" novalidate>
+  <div class="weui-cells-fg">
+    <div class="weui-cell">
+      <div class="weui-cell__hd">
+        <label class="weui-label">充电卡卡号</label>
+      </div>
+      <div class="weui-cell__bd"><input class="weui-input" name="cardno" ng-model="form.cardno" type="text" placeholder="请输入充电卡卡号"  required>
+      <!--<div class="weui-cell__bd"><input class="weui-input" name="kh" ng-model="form.kh" type="number" placeholder="请输入充电卡卡号" ng-pattern="/^\d{16}$/" required>-->
+      </div>
+    </div>
+    <label class="weui-cell">
+      <div class="weui-cell__hd">
+        <label class="weui-label">充电卡密码</label>
+      </div>
+      <div class="weui-cell__bd"><input class="weui-input" name="cardPwd" ng-model="form.cardPwd" type="password" placeholder="请输入充电卡密码" required></div>
+    </label>
+  </div>
+  <div class="weui-btn-area">
+    <button ng-click="submit(myForm)">绑定</button>
+  </div>
+</form>

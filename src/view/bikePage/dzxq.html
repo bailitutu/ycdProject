@@ -1,0 +1,92 @@
+
+<div class="header weui-flex" style="position: fixed; top:0;left:0;z-index: 1000;width:100%;" >
+    <div ng-class="{'active': !current}" ng-click="setCurrent(0)" class="weui-flex__item btn-1 br-r-1" >
+        电站详情
+    </div>
+    <div ng-class="{'active':current}" ng-click="setCurrent(1)" class="weui-flex__item btn-1" >
+        终端详情
+    </div>
+</div>
+<div class="flexColumnContent has-header" style="position: relative;padding-top:60px;height:100%;">
+
+    <div ng-show="!current">
+        <div class="weui-cells" ng-show="ready">
+            <div class="weui-cell">
+                <div class="weui-cell__hd">
+                    <img class="img__thumb" src="{{data.img}}" alt="">
+                </div>
+                <div class="weui-cell__bd">
+                    {{data.name}}
+                    <p class="weui-media-box__desc"><span class="lt-30">收费：{{data.fl}}元/小时</span><br>设备编号：{{data.id}}</p>
+                </div>
+                <div class="weui-cell__ft">
+                    <div style="height:32px;width:32px;font-size:12px;color:#fff;background:#16cd6b;text-align: center;">
+                        <p>{{data.freeNum}}</p>
+                        <p>空闲</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="weui-cells" ng-show="ready">
+            <div class="weui-cell">
+                <div class="weui-cell__bd" style="font-size:13px;color: #333;">
+                    {{data.address}}
+                    <p class="weui-media-box__desc" style="color: #999;">距您{{data.jl}}km</p>
+                </div>
+                <div class="weui-cell__ft">
+                    <a class="weui-form-preview__btn" ng-click="driving({ lat:data.lat,lng:data.lng})" style="width: 40px;height: 40px;text-align: center;line-height: 40px;">
+                        <img width="14" height="18" src="src/images/icon_driving.png" alt="">
+                    </a>
+                </div>
+            </div>
+        </div>
+        <div class="weui-cells" ng-show="ready">
+            <div class="weui-cell">
+                <div class="weui-cell__hd"><label class="weui-label">费率说明</label></div>
+                <div class="weui-cell__bd text-right">
+      <span ng-repeat="x in data.flsm" style="font-size:13px;color:#666666;">
+        {{x|flsm}}<br>
+      </span>
+                </div>
+            </div>
+            <div class="weui-cell">
+                <div class="weui-cell__hd"><label class="weui-label">服务电话</label></div>
+                <div class="weui-cell__bd text-right" style="font-size:13px;color: #666666;">
+                    {{data.fwdh}}
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+    <div ng-show="current" style="height:100%;">
+        <div class="weui-cells-fg overflow-y" my-bikes>
+            <div class="weui-cells no_pages" ng-if="zdxqdata.lists.length == 0">
+                <img src="src/images/noPage_icon.png" alt="">
+                <p class="no_pages_title">暂无可用充电枪~</p>
+            </div>
+            <div class="weui-cell weui-cell_access" ng-repeat="x in zdxqdata.lists"   ui-sref="bikezbcd({id:x.id})">
+                <div class="weui-cell__bd">
+                    <h3>{{x.name}}</h3>
+                    <span class="text-desc h5 lt-24">
+              终端编号：{{x.zdbh}}<br>
+              终端类型：{{x.zdlx}}<br>
+              充电接口：{{x.cdjk}}<br>
+              终端功率：{{x.zdgl}}KW
+            </span>
+                </div>
+                <div class="weui-cell__ft noIcon" style="position: relative;">
+                    <!--<span ng-bind-html="x.slType|slType"></span><br><br>-->
+                    <div style="position: relative;">
+                        <img class="img-min" src="{{ x.status|stateImg}}">
+                    </div>
+                    <div style="font-size: 10px;position: display:block;width: 100%;text-align: center;" >{{ x.status|zxcStatus}}</div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+</div>
+

@@ -1,0 +1,12 @@
+<!--<div ng-if="updateState==0" class="weui-loadmore weui-loadmore_line weui-loadmore_dot">-->
+  <!--<span class="weui-loadmore__tips">暂无更多数据</span>-->
+<!--</div>-->
+<div ng-if="updateState==0" class="weui-loadmore ">
+</div>
+<div ng-if="updateState==1" class="weui-loadmore">
+  <i class="weui-loading"></i>
+  <span class="weui-loadmore__tips">正在加载...</span>
+</div>
+<div ng-if="updateState==2" class="weui-loadmore weui-loadmore_line">
+  <span class="weui-loadmore__tips">我是有底线的</span>
+</div>

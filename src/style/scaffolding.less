@@ -1,0 +1,94 @@
+* {
+  .box-sizing(border-box);
+}
+
+*:before,
+*:after {
+  .box-sizing(border-box);
+}
+
+html {
+  font-size: @font-size-base!important;
+  color: @black;
+  background-color: @bg-color;
+}
+
+html, body {
+  font-size: @font-size-base!important;
+  height: 100%;
+}
+
+@media only screen and (min-width: 414px) {
+  html {
+    font-size: 14px!important;
+  }
+}
+
+// Reset fonts for relevant elements
+input,
+button,
+select,
+textarea {
+  font-family: inherit;
+  font-size: inherit;
+  line-height: inherit;
+}
+
+// Links
+a {
+  color: inherit;
+  text-decoration: none;
+
+  &:hover,
+  &:focus {
+    color: @font-nr-color;
+  }
+
+  &:focus {
+    .tab-focus();
+  }
+}
+
+figure {
+  margin: 0;
+}
+
+.left {
+  float: left;
+}
+
+.right {
+  float: right;
+}
+
+.no-radius {
+  border-radius: 0 !important;
+}
+
+.no-shadow {
+  box-shadow: none !important;
+}
+
+.lt-30 {
+  line-height: 2.5rem;
+}
+
+.lt-24 {
+  line-height: 2rem;
+}
+
+.line-height-large {
+  line-height: @line-height-large;
+}
+
+.input-small {
+  width: 6rem;
+}
+
+.ellipsis {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 1;
+}

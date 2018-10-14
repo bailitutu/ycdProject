@@ -1,0 +1,93 @@
+<div class="weui-cells">
+  <div class="weui-cell">
+    <div class="weui-cell__bd">
+      <h3 class="lt-30">其他充值金额</h3>
+      <div class="weui-flex line-height-large">
+        <h3>￥</h3>
+        <div class="weui-flex__item">
+          <input class="weui-input p-l-1 h3" string-to-number  ng-model="form.money" type="number" placeholder="请输入金额" >
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="weui-cells weui-radio_btn">
+  <div class="weui-cell">
+    <div class="weui-cell__bd">
+      <h3 class="lt-30">充值金额</h3>
+    </div>
+  </div>
+  <div class="weui-cell text-center">
+    <div class="weui-cell__bd">
+      <div class="weui-flex">
+        <label class="weui-flex__item m-r_1 m-l_1 m-b-1">
+          <!--30-->
+          <input class="weui-check" value="30" ng-model="form.money" type="radio" />
+          <div class="radio_btn h3">30元</div>
+        </label>
+        <label class="weui-flex__item m-r_1 m-l_1">
+          <input class="weui-check" value="50" ng-model="form.money" type="radio" />
+          <div class="radio_btn h3">50元</div>
+        </label>
+        <label class="weui-flex__item m-r_1 m-l_1">
+          <input class="weui-check" value="100" ng-model="form.money" type="radio" />
+          <div class="radio_btn h3" style="margin-right: 0">100元</div>
+        </label>
+      </div>
+      <div class="weui-flex">
+        <label class="weui-flex__item m-r_1 m-l_1">
+          <input class="weui-check" value="150" ng-model="form.money" type="radio" />
+          <div class="radio_btn h3">150元</div>
+        </label>
+        <label class="weui-flex__item m-r_1 m-l_1">
+          <input class="weui-check" value="200" ng-model="form.money" type="radio" />
+          <div class="radio_btn h3">200元</div>
+        </label>
+        <label class="weui-flex__item m-r_1 m-l_1">
+          <input class="weui-check" value="500" ng-model="form.money" type="radio" />
+          <div class="radio_btn h3" style="margin-right: 0">500元</div>
+        </label>
+      </div>
+    </div>
+  </div>
+  <div class="weui-cell" ng-if="sje">
+    <div class="weui-cell__bd">
+      <h3 class="lt-30 text-danger">活动赠送：{{sje}}</h3>
+    </div>
+  </div>
+</div>
+<div class="weui-cells">
+  <div class="weui-cell">
+    <div class="weui-cell__hd" style="height:24px;line-height: 24px;padding-left:28px;background: url('src/images/icon_yue.png') no-repeat center left;background-size:22px 19px;" >钱包余额</div>
+    <div class="weui-cell__bd text-right">{{data.premain|je}}</div>
+  </div>
+  <div class="weui-cell">
+    <div class="weui-cell__hd" style="height:18px;line-height: 24px;padding-left:28px;background: url('src/images/icon_sub.png') no-repeat center left;background-size:24px 18px;" >子账户余额</div>
+    <div class="weui-cell__bd text-right ">{{data.subaccount|je}}</div>
+  </div>
+</div>
+<div class="weui-cells weui-cell_access" ng-if="rechargeType != 1">
+  <div class="weui-cell" ng-click="selectDiscount()">
+    <div class="weui-cell__hd" style="height:24px;line-height: 24px;" >选择优惠券</div>
+    <div class="weui-cell__bd text-right text-danger">{{ disMoney|| 0}}</div>
+    <div class="weui-cell__ft"></div>
+  </div>
+</div>
+<div class="weui-cells">
+  <div class="weui-cell">
+    <div class="weui-cell__hd wxpay" >微信支付</div>
+    <div class="weui-cell__bd pay_sel " ng-click="changeType('2')"   ng-class="{'active': payType == '2'}">
+        <i></i>
+    </div>
+  </div>
+  <!--<div class="weui-cell">-->
+    <!--<div class="weui-cell__hd alipay" >支付宝支付</div>-->
+    <!--<div class="weui-cell__bd pay_sel" ng-click="changeType('1')"   ng-class="{'active': payType == '1'}" >-->
+      <!--<i ></i>-->
+    <!--</div>-->
+  <!--</div>-->
+</div>
+<div class="weui-btn-area">
+  <button ng-click="submit()">立即充值</button>
+</div>
+<div id="alipayForm"></div>

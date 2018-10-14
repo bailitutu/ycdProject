@@ -1,0 +1,86 @@
+<div class="weui-search-bar header" id="searchBar">
+  <div class=""  ui-sref="sm" style="padding:0; width:44px;height:40px; margin:0 4px;text-align: center;line-height: 36px;">
+    <img style="width:60%;height:60%;" src='src/images/icon_sao.png'/>
+  </div>
+  <form class="weui-search-bar__form" style="height:32px;vertical-align: middle;margin-top: 4px;"  ng-submit="searchClick()">
+    <div class="weui-search-bar__box">
+      <i class="weui-icon-search" style="left:0;width:32px;" ng-click="searchClick()"></i>
+      <input class="weui-search-bar__input" id="searchInput"  ng-keyup="changeText($event)"  placeholder="站点名称" required=""  name="querykey"  ng-model="querykey" type="search">
+      <a href="javascript:" class="weui-icon-clear" id="searchClear"></a>
+    </div>
+    <label class="weui-search-bar__label" id="searchText" style="line-height:26px;">
+      <i class="weui-icon-search"></i>
+      <span>搜索</span>
+    </label>
+  </form>
+  <a href="javascript:" class="weui-search-bar__cancel-btn" id="searchCancel" style="font-size:14px;color:#666;" ng-click="searchCancel()">取消</a>
+  <div  ui-sref="bikedt" style="padding:0; width:40px;height:40px; margin:0 4px; text-align: center;line-height: 32px;">
+    <img style="width:60%;height:60%;" src='src/images/icon_map.png'/>
+  </div>
+</div>
+<div class="header-cell" style="margin-top: 0;margin-bottom:0;">
+  <div class="weui-cell weui-flex">
+    <div class=" arrow-down" style="width:15rem;"><input class="weui-input text-center" id="picker-city" placeholder="全部地区" style="
+    padding-right: 1.2rem;"></div>
+    <div class=" arrow-down filer_down"  style="width: 4rem;"  ng-click="filterHandle($event)"><p >筛选</p></div>
+  </div>
+</div>
+<div class="flexColumnContent has-header" my-bike>
+
+  <div class="weui-cells no_pages" ng-show=" data.lists.length == 0" style="margin-top:10px;">
+    <img src="src/images/noPage_icon.png" alt="">
+    <p class="no_pages_title">暂无站点~</p>
+  </div>
+  <div class="weui-cells weui-cell_access weui-start weui-cells_panel" ng-repeat="x in data.lists" ui-sref="bikexq({id:x.id,nowLng:userPosition.nowlng,nowLat:userPosition.nowlat})">
+    <div class="weui-cell">
+      <div class="weui-cell__hd">
+        <img class="img__thumb" src="{{x.img}}" alt="">
+      </div>
+      <div class="weui-cell__bd">
+        <h3 class="ellipsis">{{x.name}}</h3>
+        <p class="weui-media-box__desc">
+          <span class="lt-30">费率：{{ x.fl }}元/度</span><br/>{{x.yys}} {{x.xz|xz}} {{x.area}}</p>
+      </div>
+      <div class="weui-cell__ft z_distance">
+        <p>{{ x.jl }}km</p>
+      </div>
+    </div>
+    <div class="weui-flex p-1 br-t-1">
+      <div class="weui-flex__item">
+        当前空闲：<span class="text-primary">{{x.num}}</span>台
+        <span ng-bind-html="x.slType|slType"></span>
+      </div>
+      <div class="label-primary label-small">{{ x.state|state }}</div>
+    </div>
+  </div>
+</div>
+<div class="top_filter" ng-show="showFilter" ng-click="closeFilter($event)">
+  <div class="filter_inner">
+    <div class="filter_con">
+      <div class="filter_con_cell">
+        <h4 >充电方式</h4>
+        <div class="con_btns">
+          <button class="filter_btn" ng-class="{active:ptype == '1'}" ng-click="selectFilter1('1',$event)" >直流桩</button>
+          <button class="filter_btn " ng-class="{ active:ptype == '2'}" ng-click="selectFilter1('2',$event)" >交流桩</button>
+          <button class="filter_btn " ng-class="{active:ptype == '3'}" ng-click="selectFilter1('3',$event)" >混合桩</button>
+        </div>
+      </div>
+      <div class="filter_con_cell">
+        <h4 >营业状态</h4>
+        <div class="con_btns">
+          <button class="filter_btn"  ng-click="selectFilter3('1',$event)" ng-class="{active:boolH24 == '1'}">24小时</button>
+          <button class="filter_btn"  ng-click="selectFilter3('2',$event)" ng-class="{active:boolH24 == '2'}">营业中</button>
+        </div>
+      </div>
+    </div>
+    <div class="filter_footer">
+      <button class="foo_btn" ng-click="cancelFilter($event)">取消筛选</button>
+      <button class="foo_btn confirm_btn" ng-click="confimFilter($event)">确定</button>
+    </div>
+  </div>
+</div>
+
+
+
+
+

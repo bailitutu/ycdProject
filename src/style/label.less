@@ -1,0 +1,46 @@
+.label-base(@size) {
+  padding: @size;
+  border-radius: @border-radius-base;
+  display: inline-block;
+}
+
+.label(@size:@label-large,@color) {
+  .label-base(@size);
+  color: @color;
+  border: @min-px solid @color;
+}
+
+.label-rev(@size:@label-large,@color) {
+  .label-base(@size);
+  background-color: @color;
+  color: @white;
+}
+
+.label-success {
+  .label(@label-large, @s-color);
+}
+
+.label-warning {
+  .label(@label-large, @w-color);
+}
+
+.label-primary {
+  .label(@label-large, @p-color);
+}
+
+.success-label {
+  .label-rev(@label-large, @s-color);
+}
+
+.warning-label {
+  .label-rev(@label-large, @w-color);
+}
+
+.primary-label {
+  .label-rev(@label-large, @p-color);
+}
+
+.label-small {
+  padding: @label-base;
+  line-height: @line-height-small;
+}

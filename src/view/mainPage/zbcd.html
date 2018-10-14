@@ -1,0 +1,37 @@
+<div class="weui-cells">
+  <div class="weui-cell" style="align-content:stretch;">
+    <div class="weui-cell__bd">
+      <h3>{{ycd.name}}</h3>
+            <span class="text-desc h5 lt-24">
+              终端编号：{{ycd.zdbh}}<br>
+              终端类型：{{ycd.zdlx | zdlx}}<br>
+              充电接口：{{ycd.cdjk | cdjk}}<br>
+              终端功率：{{ycd.zdgl}}KW
+            </span>
+    </div>
+    <div class="weui-cell__ft" style="height: 100%;display: flex;flex-direction: column;justify-content:space-between;">
+      <span ng-bind-html="ycd.slType|slType"></span>
+      <div style="width:4.5rem;margin-top:4px;">
+        <img style="width:4.5rem;" src="{{ycd.status | stateImg}}">
+      </div>
+      <div style="font-size: 12px;margin-top:4px;text-align: center;"> {{ ycd.status | stateText}}</div>
+    </div>
+  </div>
+</div>
+<div class="weui-cells">
+  <div class="weui-cell">
+    <div class="weui-cell__hd"><label class="weui-label">费率说明</label></div>
+    <div class="weui-cell__bd text-right">
+      <span ng-repeat="x in ycd.flsm" style="font-size:12px;color:#666;">
+        {{x|flsm}}<br>
+      </span>
+    </div>
+  </div>
+  <div class="weui-cell">
+    <div class="weui-cell__hd"><label class="weui-label">服务电话</label></div>
+    <div class="weui-cell__bd text-right" style="font-size:13px;color:#666666;">{{ycd.fwdh}}</div>
+  </div>
+</div>
+<div class="weui-btn-area">
+  <button type="button"  ng-click="recharge()">立即充电</button>
+</div>

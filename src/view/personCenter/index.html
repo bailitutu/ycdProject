@@ -1,0 +1,37 @@
+<div class="header-shadow bg1 bg1-large">
+  <div class="weui-cell weui-flex weui_user_info">
+    <div ng-click="photos()" class="img__thumb img-circle thumb_tx"  >
+      <img style="width: 100%;height: 100%;border-radius: 50%;" ng-src="{{data.img}}" alt="">
+    </div>
+    <div class="weui-flex__item lt-30" ui-sref="setting">
+      <h3>{{data.nickName || ''}}</h3>
+      <div><span class="per_user_phone">{{data.phone || '' | tel }}</span></div>
+    </div>
+    <div>
+      <span ng-if="data.authStatus == 1"  class="primary-label icon_sm">已认证</span>
+      <span ng-if="data.authStatus == 0"  ui-sref="smrzRz"  class="warning-label icon_wsm">立即认证</span>
+    </div>
+  </div>
+</div>
+<div class="weui-cells">
+  <div ng-repeat="x1 in lists1" ui-sref="{{x1.href}}" class="weui-cell weui-cell_access">
+    <div class="weui-cell__hd">
+      <img class="weui-tabbar__icon icon-small" ng-src='images/{{x1.icon}}' style="height:2.2rem;width:2.8rem;float:right;" />
+    </div>
+    <div class="weui-cell__bd"><h4>{{x1.name}}</h4></div>
+    <div class="weui-cell__ft">
+      <span ng-bind-html="x1.badge|badge"></span>
+    </div>
+  </div>
+</div>
+<div class="weui-cells">
+  <div ng-repeat="x in lists2" ui-sref="{{x.href}}" class="weui-cell weui-cell_access">
+    <div class="weui-cell__hd" >
+      <img class="weui-tabbar__icon icon-small"  ng-src='images/{{x.icon}}' style="height:2.2rem;width:2.8rem;float:right;" />
+    </div>
+    <div class="weui-cell__bd"><h4>{{x.name}}</h4></div>
+    <div class="weui-cell__ft">
+      <span ng-bind-html="x.badge|badge"></span>
+    </div>
+  </div>
+</div>

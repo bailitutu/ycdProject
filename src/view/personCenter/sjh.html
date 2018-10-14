@@ -1,0 +1,12 @@
+<div class="weui-msg">
+  <div class="weui-msg__icon-area"><img src="images/sjbd.png" class="img-large"></div>
+  <div class="weui-msg__text-area">
+    <h2 class="weui-msg__title">您当前的手机号为{{data.phone|tel}}</h2>
+    <p class="weui-msg__desc">更换后所有信息不变 , 修改后须使用新手机号登录 , 仅支持修改到未注册手机号。</p>
+  </div>
+  <div class="weui-msg__opr-area">
+    <p class="weui-btn-area">
+      <button ui-sref="xgsjh({ phone:data.phone})">更换手机号</button>
+    </p>
+  </div>
+</div>

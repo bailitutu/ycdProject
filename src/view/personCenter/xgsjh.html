@@ -1,0 +1,38 @@
+<form name="myForm" novalidate>
+  <div class="weui-cells">
+    <label class="weui-cell">
+      <div class="weui-cell__hd">
+        <label class="weui-label">手机号</label>
+      </div>
+      <div class="weui-cell__bd">
+        <input class="weui-input" type="tel" placeholder="请输入新的手机号" ng-model="form.phone" name="phone" required>
+      </div>
+    </label>
+    <div class="weui-cell">
+      <div class="weui-cell__hd"><label class="weui-label">验证码</label></div>
+      <div class="weui-cell__bd">
+        <input class="weui-input" type="number" placeholder="请输入验证码" ng-model="form.yzm" name="yzm" >
+      </div>
+      <div class="weui-cell__ft">
+        <span ng-if="timeNum">{{timeNum}}s后重新获取</span>
+        <span ng-if="!timeNum" ng-click="timer(60,myForm)" style="color:#1791ff;">获取验证码</span>
+
+      </div>
+    </div>
+    <label class="weui-cell">
+      <div class="weui-cell__hd">
+        <label class="weui-label">原密码</label>
+      </div>
+      <div class="weui-cell__bd"><input class="weui-input" ng-model="form.oldpwd" name="oldpwd" type="password" placeholder="请输入原密码" required autocomplete="off"></div>
+    </label>
+    <label class="weui-cell">
+      <div class="weui-cell__hd">
+        <label class="weui-label">新密码</label>
+      </div>
+      <div class="weui-cell__bd"><input class="weui-input" ng-model="form.newpwd" name="newpwd" type="password" placeholder="请输入新密码" required autocomplete="off"></div>
+    </label>
+  </div>
+  <div class="weui-btn-area">
+    <button ng-click="submit(myForm)">确定</button>
+  </div>
+</form>

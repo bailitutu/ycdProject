@@ -1,0 +1,19 @@
+{
+  "name": "gulpcase3",
+  "description": "",
+  "main": "gulpfile.js",
+  "license": "ISC",
+  "homepage": "",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "angular-animate": "^1.7.5",
+    "angular-file-upload": "^2.5.0",
+    "angular-cookies": "^1.7.5"
+  }
+}

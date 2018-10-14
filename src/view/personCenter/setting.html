@@ -1,0 +1,33 @@
+<div class="weui-cells-fg">
+    <label class="weui-cell weui-cell_access">
+        <div class="weui-cell__hd">头像</div>
+        <div class="weui-cell__bd text-right">
+            <div class="img__thumb img_small img-circle thumb_tx" ng-repeat="item in uploader.queue" ng-show="uploader.isHTML5" ng-thumb="{ file: item._file,tx:true}"></div>
+            <img style="border-radius: 50%;" ng-if="!uploader.queue.length" class="img__thumb img_small img-circle" ng-src="{{data.img}}">
+            <input nv-file-select uploader="uploader" type="file" accept="image/*" style="position: absolute;left: -300%">
+        </div>
+        <div class="weui-cell__ft"></div>
+    </label>
+    <div ui-sref="xgmc" class="weui-cell weui-cell_access">
+        <div class="weui-cell__hd">昵称</div>
+        <div class="weui-cell__bd text-right" style="font-size:13px;">{{data.nickName || ''}}</div>
+        <div class="weui-cell__ft"></div>
+    </div>
+    <div ui-sref="sjh" class="weui-cell weui-cell_access">
+        <div class="weui-cell__hd">手机号</div>
+        <div class="weui-cell__bd text-right" style="font-size:13px;">{{data.phone|| '' |tel}}</div>
+        <div class="weui-cell__ft"></div>
+    </div>
+    <div ng-click="goRz(data.authStatus)"  class="weui-cell weui-cell_access">
+        <div class="weui-cell__hd">身份认证</div>
+        <div class="weui-cell__bd text-right"><span class="text-primary" style="font-size:13px;">{{data.authStatus|rz}}</span></div>
+        <div class="weui-cell__ft"></div>
+    </div>
+    <div ui-sref="xgmm" class="weui-cell weui-cell_access">
+        <div class="weui-cell__hd">修改密码</div>
+        <div class="weui-cell__ft"></div>
+    </div>
+</div>
+<div class="weui-btn-area">
+    <button ng-click="logout()">退出登录</button>
+</div>

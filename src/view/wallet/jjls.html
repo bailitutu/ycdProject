@@ -1,0 +1,28 @@
+<div class="weui-flex header">
+  <label class="weui-flex__item br-r-1">
+    <svg class="weui-tabbar__icon" viewBox="0 0 8 8">
+      <use xlink:href="{{static.svgIcon+'#sx'}}"></use>
+    </svg>
+    <input type="text" class="weui-input input-small" id="picker-sx" value="全部">
+  </label>
+  <!--<label class="weui-flex__item">-->
+    <!--<svg class="weui-tabbar__icon" viewBox="0 0 8 8">-->
+      <!--<use xlink:href="{{static.svgIcon+'#rq'}}"></use>-->
+    <!--</svg>-->
+    <!--<input type="text" class="weui-input input-small" id="picker-rq" value="全部">-->
+  <!--</label>-->
+</div>
+<div class="weui-cells-fg has-header flexColumnContent" my-update>
+  <div class="weui-cells no_pages" ng-if="data.lists.length == 0">
+    <img src="images/noPage_icon.png" alt="">
+    <p class="no_pages_title">还没有流水账单哦~</p>
+  </div>
+  <div ng-repeat="x in data.lists" class="weui-cell" ng-if="data.lists.length > 0">
+    <div class="weui-cell__bd">
+      <h3>{{x.yys}}</h3>
+      <br>
+      <p class="text-desc h5">{{x.date}}</p>
+    </div>
+    <div class="weui-cell__ft">{{x.je|je}}</div>
+  </div>
+</div>

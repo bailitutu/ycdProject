@@ -1,0 +1,40 @@
+/**
+ * Created by Administrator on 2018/4/18 0018.
+ */
+.btn-block {
+  display: block;
+}
+
+.btn-default {
+  padding: @label-large;
+  font-size: @font-size-large;
+  line-height: @line-height-large;
+  border-radius: @border-radius-large;
+  text-align: center;
+  color: @font-nr-color;
+  background-color: @white;
+}
+
+button {
+  .btn-block;
+  .btn-default;
+  width: 100%;
+  border: none;
+  margin-bottom: @size-1;
+  .box-shadow(@shadow);
+}
+
+.btn-primary {
+  background-color: @p-color;
+  color: @white;
+}
+
+.btn-small {
+  padding: @size_1;
+  font-size: inherit;
+  line-height: inherit;
+}
+
+.btn-1 {
+  line-height: @size-6;
+}

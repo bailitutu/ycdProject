@@ -1,0 +1,42 @@
+<form name="myForm" novalidate>
+  <div class="weui-cells-fg">
+    <div class="weui-cell">
+      <label class="weui-label" style="display: none">问题说明</label>
+      <div class="weui-cell__bd">
+        <textarea class="weui-textarea" ng-model="form.detail" name="detail" style="font-size:13px; color: #999999;" placeholder="请说明问题以便我们提供更好的服务" rows="3" required></textarea>
+        <div class="weui-textarea-counter"><span>{{form.detail.length}}</span>/200</div>
+      </div>
+    </div>
+    <div class="weui-cell">
+      <div class="weui-cell__bd">
+        <div class="weui-uploader">
+          <!--<div class="weui-uploader__hd">-->
+            <!--<p class="weui-uploader__title">图片（选填，提供问题截图）</p>-->
+            <!--<div class="weui-uploader__info">{{uploader.queue.length}}/4</div>-->
+          <!--</div>-->
+          <div class="weui-uploader__bd">
+            <ul class="weui-uploader__files">
+              <li ng-repeat="item in uploader.queue" class="weui-uploader__file weui-uploader__file_status" ng-show="uploader.isHTML5" ng-thumb="{ file: item._file}">
+                <div class="weui-uploader__file-content">
+                  <i class="weui-icon-cancel" ng-show="!showProgress" ng-click="item.remove()"></i>
+                  <span ng-show="showProgress">{{item.progress}}%</span>
+                </div>
+              </li>
+            </ul>
+            <div class="weui-uploader__input-box" ng-show="uploader.queue.length < 4" style="width:73px;height:73px;">
+              <input nv-file-select uploader="uploader" class="weui-uploader__input" type="file"  multiple="multiple" accept="image/*"  >
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="weui-cell">
+      <div class="weui-cell__bd">
+        <input class="weui-input" type="number" style="font-size:13px;" ng-model="form.phone" placeholder="（选填）请留下手机号以便我们更多的帮助你">
+      </div>
+    </div>
+  </div>
+  <div class="weui-btn-area">
+    <button ng-click="submit(myForm)">提交</button>
+  </div>
+</form>

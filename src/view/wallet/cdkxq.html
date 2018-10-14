@@ -1,0 +1,12 @@
+<div class="weui-cells-fg cdk">
+  <div class="weui-cell weui-start" ng-class="{ zs:data.zx}">
+    <div class="weui-cell__hd"><h3>卡号：{{data.kh}}</h3><br><br>{{data.type}}</div>
+    <div class="weui-cell__ft" ng-if="!data.zx" ui-sref="xgcdkmm({id:data.id})" >
+      <span >修改密码</span>
+    </div>
+  </div>
+</div>
+<div class="weui-btn-area">
+  <button class="btn-primary" ng-click="jcbd()">解除绑定</button>
+  <button ng-if="!data.zx" ng-click="zxkp()">注销卡片</button>
+</div>

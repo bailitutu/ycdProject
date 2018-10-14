@@ -1,0 +1,37 @@
+<div class="search_item" ng-show="isSearch">
+  <form class="weui-search-bar__form" action="#" style="height:40px;">
+    <div class="weui-search-bar__box">
+      <i class="search_icon" ></i>
+      <input class="weui-search-bar__input search_input" id="searchInput" ng-blur="changeText($event)" placeholder="请输入关键字" required="" type="search">
+    </div>
+  </form>
+</div>
+
+<div class="search_res" ng-show="!isSearch">
+  <div class="search_mark">
+      <div class="serach_list">
+          <div class="res_cell" ng-repeat="item in markerList.lists"  ng-click="linkTo(item.id)">
+            <img src="{{item.img}}" alt="">
+            <div class="res_info">
+              <div class="res_name">
+                <h4>{{item.name}} <span>{{item.state|state}}</span></h4>
+              </div>
+              <div class="res_fee">
+                <p>费率:{{ item.fl }}元/度</p>
+              </div>
+              <p class="res_tips">{{item.yys}}|{{item.xz|xz}}|{{item.area}}</p>
+            </div>
+            <div class="res_driving" ng-click="driving({lng:item.lng,lat:item.lat},$event)">
+              <img src="src/images/icon_driving.png" alt="">
+              <p class="res_dis">{{ item.jl }}m</p>
+            </div>
+          </div>
+      </div>
+  </div>
+
+
+
+</div>
+
+
+<div id="map_car" style="width:100%; height:100%;position:absolute;top:0;left: 0;z-index: 1;"></div>

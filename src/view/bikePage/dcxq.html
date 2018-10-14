@@ -1,0 +1,53 @@
+<div class="weui-cells">
+  <div class="weui-cell">
+    <div class="weui-cell__hd">
+      <img class="img__thumb" src="{{data.img}}" alt="">
+    </div>
+    <div class="weui-cell__bd">
+      {{data.name}}
+      <p class="weui-media-box__desc"><span class="lt-30">收费：{{data.fl}}元/小时</span><br>设备编号：{{data.id}}</p>
+    </div>
+    <div class="weui-cell__ft">
+      <div style="height:32px;width:32px;font-size:12px;color:#fff;background:#16cd6b;text-align: center;">
+        <p>{{data.freeNum}}</p>
+        <p>空闲</p>
+      </div>
+      <!--<div ng-click="sc()" style="text-align: center;margin-top: 4px;">-->
+        <!--<img src="src/images/sc_icon.png" ng-show="!hasCollect" class="icon_small" alt="">-->
+        <!--<img src="src/images/sc_active.png" ng-show="hasCollect" class="icon_small" alt="">-->
+      <!--</div>-->
+    </div>
+  </div>
+</div>
+<div class="weui-cells">
+  <div class="weui-cell">
+    <div class="weui-cell__bd" style="font-size:13px;color: #333;">
+      {{data.address}}
+      <p class="weui-media-box__desc" style="color: #999;">距您{{data.jl}}km</p>
+    </div>
+    <div class="weui-cell__ft">
+      <a class="weui-form-preview__btn" ng-click="driving({ lat:data.lat,lng:data.lng})" style="width: 40px;height: 40px;text-align: center;line-height: 40px;">
+        <img width="14" height="18" src="src/images/icon_driving.png" alt="">
+      </a>
+    </div>
+  </div>
+</div>
+<div class="weui-cells">
+  <div class="weui-cell">
+    <div class="weui-cell__hd"><label class="weui-label">费率说明</label></div>
+    <div class="weui-cell__bd text-right">
+      <span ng-repeat="x in data.flsm" style="font-size:13px;color:#666666;">
+        {{x|flsm}}<br>
+      </span>
+    </div>
+  </div>
+  <div class="weui-cell">
+    <div class="weui-cell__hd"><label class="weui-label">服务电话</label></div>
+    <div class="weui-cell__bd text-right" style="font-size:13px;color: #666666;">
+      {{data.fwdh}}
+    </div>
+  </div>
+</div>
+<div class="weui-btn-area">
+  <button ui-sref="ycje({'id':data.id})">立即充电</button>
+</div>

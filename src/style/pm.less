@@ -1,0 +1,78 @@
+.fun(@n,@name,@val,@i) {
+  .@{n}-@{i} {
+      @{name}: @val;
+  }
+  .@{n}-t-@{i} {
+      @{name}-top: @val;
+  }
+  .@{n}-r-@{i} {
+      @{name}-right: @val;
+  }
+  .@{n}-b-@{i} {
+      @{name}-bottom: @val;
+  }
+  .@{n}-l-@{i} {
+      @{name}-left: @val;
+  }
+}
+
+.p-loop(@n, @i:1) when (@i <= @n) {
+  .fun(p,padding,@size-1+(@i - 1)*.25,@i);
+  .fun(m,margin,@size-1+(@i - 1)*.25,@i);
+  .p-loop(@n, (@i + 1));
+}
+
+.p-loop(5);
+
+.br-r-1 {
+  position: relative;
+  &:before {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 1px;
+    height: 100%;
+    border-right: @min-px solid @border-color;
+    color: @border-color;
+    transform-origin: 0 0;
+    transform: scaleX(.5);
+    z-index: 2;
+    content: "";
+  }
+}
+.br-t-1 {
+  position: relative;
+  &:before {
+    position: absolute;
+    top: 0;
+    right: 0;
+    height: 1px;
+    border-top: @min-px solid #e5e5e5;
+    color: #e5e5e5;
+    transform-origin: 0 0;
+    transform: scaleY(.5);
+    left: 15px;
+    z-index: 2;
+    content: "";
+  }
+}
+
+.p-0 {
+  padding: 0;
+}
+.p-t-0 {
+  padding-top: 0;
+}
+
+.m-0 {
+  margin: 0!important;
+}
+.m-r_1 {
+  margin-right:@size_1;
+}
+.m-l_1 {
+  margin-left:@size_1;
+}
+.p-tb-5 {
+  padding: @size-5 0;
+}

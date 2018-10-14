@@ -1,0 +1,26 @@
+.box-shadow(@shadow) {
+  -webkit-box-shadow: @shadow; // iOS <4.3 & Android <4.1
+  box-shadow: @shadow;
+}
+
+.box-sizing(@boxmodel) {
+  -webkit-box-sizing: @boxmodel;
+  -moz-box-sizing: @boxmodel;
+  box-sizing: @boxmodel;
+}
+
+.tab-focus() {
+  outline: thin dotted;
+  outline: @size_1 auto -webkit-focus-ring-color;
+  outline-offset: -2px;
+}
+
+.arrow-down:after {
+  border-left: @size_1 solid transparent;
+  border-right: @size_1 solid transparent;
+  border-top: @size_1 solid #ddd;
+  content: "";
+  position: absolute;
+  top: @size-3;
+  margin-left: -@size-1;
+}

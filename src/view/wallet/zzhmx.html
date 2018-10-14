@@ -1,0 +1,28 @@
+<div class="weui-cells">
+  <div class="weui-cell">
+    <div class="weui-cell__hd">
+      <label class="weui-label">子账户总额</label>
+    </div>
+    <div class="weui-cell__ft">
+      <h3 class="text-danger">{{total|je}}</h3>
+    </div>
+  </div>
+</div>
+<div class="weui-panel">
+  <div class="weui-panel__hd">子账户明细</div>
+  <div class="weui-panel__bd">
+    <div ng-repeat="x in data.lists" class="weui-cell weui-cell_access" ng-if="data.lists.length>0"  ui-sref="zhcz({type:'2',bizId:x.id})">
+      <div class="weui-cell__hd">
+        <label class="weui-label">{{x.yys}}</label>
+      </div>
+      <div class="weui-cell__bd text-right p-r-1">{{x.je|je}}</div>
+      <div class="weui-cell__ft">
+        <span class="label-primary label-small">充值</span>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="weui-cells no_pages" ng-if="data.lists.length == 0">
+  <img src="src/images/noPage_icon.png" alt="">
+  <p class="no_pages_title">您还没有子账户明细哦~</p>
+</div>

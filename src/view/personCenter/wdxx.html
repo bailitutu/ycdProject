@@ -1,0 +1,19 @@
+<div class="weui-cells-fg overflow-y" my-update>
+  <div class="weui-cells no_pages" ng-show="{{data.lists.length == 0}}">
+    <img src="images/noPage_icon.png" alt="">
+    <p class="no_pages_title">您还没有消息哦~</p>
+  </div>
+  <div ng-repeat="x in data.lists" ng-click="x.isRead=true" ui-sref="wdxxxq({id:{{x.id}}})" ng-show="{{data.lists.length > 0}}" class="weui-cell weui-cell_access">
+    <div class="weui-cell__hd">
+      <img class="img__thumb img-rounded" src="{{x.image}}" alt="">
+    </div>
+    <div class="weui-cell__bd" style="width: 200px;">
+      <h3><span class="redPort" ng-show="!x.isRead"></span> {{x.yys}}</h3>
+      <div class="weui-media-box__desc lt-24" style="font-size:12px;">
+        <div  style="overflow:hidden;white-space:nowrap;text-overflow: ellipsis;">{{x.desc}}</div>
+        <p>{{x.date}}</p>
+      </div>
+    </div>
+    <div class="weui-cell__ft"></div>
+  </div>
+</div>

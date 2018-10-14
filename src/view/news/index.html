@@ -1,0 +1,19 @@
+<div class="overflow-y" my-update>
+  <div class="weui-cells no_pages" ng-show=" data.lists.length == 0" >
+    <img src="src/images/noPage_icon.png" alt="">
+    <p class="no_pages_title">暂无新闻活动哦~</p>
+  </div>
+
+  <div class="header-cell" ng-repeat="x in data.lists" style="overflow: hidden" ui-sref="newsxq({id:x.id})">
+    <div style="height: 136px; overflow: hidden"><img src="{{x.image}}" width="100%"></div>
+    <div class="weui-cell weui-cell_access text-left no-shadow">
+      <div class="weui-cell__bd">
+        <div class="lt-30">
+          <h3>{{x.title}} <span class="text-primary" style="margin-left:10px;font-weight:normal;">{{x.status}}</span></h3>
+          <p class="weui-media-box__desc">{{x.desc}}</p>
+        </div>
+      </div>
+      <div class="weui-cell__ft"></div>
+    </div>
+  </div>
+</div>

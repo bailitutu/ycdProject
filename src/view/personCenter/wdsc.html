@@ -1,0 +1,32 @@
+<div class="overflow-y" my-collect>
+  <div class="weui-cells no_pages" ng-if="data.lists.length == 0">
+    <img src="src/images/noPage_icon.png" alt="">
+    <p class="no_pages_title">您还没有收藏哦~</p>
+  </div>
+  <div class="weui-cells weui-cells_panel" ng-repeat="x in data.lists"   ng-if="data.lists.length > 0" ui-sref="dzxq({id:x.id})" >
+    <div class="weui-cell">
+      <div class="weui-cell__hd">
+        <img class="img__thumb img-rounded" ng-src="{{x.img}}" alt="">
+      </div>
+      <div class="weui-cell__bd">
+        <span class="ellipsis h3">{{x.name}}</span>
+        <p class="weui-media-box__desc"><span class="lt-30">费率：{{ x.fl }}元/度</span><br/>{{x.yys}} {{x.xz|xz}} {{x.area}}
+        </p>
+      </div>
+      <div class="weui-cell__ft">
+        <p>{{ x.jl }}km</p>
+      </div>
+    </div>
+    <div class="weui-cell">
+      <div class="weui-cell__hd">
+        空闲：<span class="text-primary">{{x.num}}</span>台
+        <span class="label-primary label-small">{{ x.state|state }}</span>
+        <span class="label-success label-small">{{x.tc|tc}}</span>
+        <span ng-bind-html="x.slType|slType"></span>
+      </div>
+      <div class="weui-cell__ft">
+        <span class="label-primary" ng-click="qxsc(x.id,$index,config.id);$event.stopPropagation();">取消收藏</span>
+      </div>
+    </div>
+  </div>
+</div>

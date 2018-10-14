@@ -1,0 +1,53 @@
+<form name="myForm" novalidate>
+  <div class="weui-cells">
+    <div class="weui-cell">
+      <div class="weui-cell__bd">
+        <div style="display: none" class="weui-label">充值金额</div>
+        <h3 class="lt-30">预计充电费用</h3>
+        <div class="weui-flex line-height-large">
+          <h3>￥</h3>
+          <div class="weui-flex__item"><input class="weui-input p-l-1 h3" type="number" number-min="0" number-max="{{(maxJe)}}" ng-change="je()" ng-model="form.je" name="je" placeholder="请输入金额" required></div>
+        </div>
+      </div>
+      <div class="weui-cell__ft pr-1">
+        <span class="primary-label" ui-sref="zhcz({type:'1'})">去充值</span>
+      </div>
+    </div>
+  </div>
+  <div class="weui-cells">
+    <div class="weui-cell">
+      <div class="weui-cell__bd">
+        <h3 class="lt-30">预计充电电量</h3>
+        <div class="weui-flex line-height-large">
+          <h3>度</h3>
+          <div class="weui-flex__item"><input class="weui-input p-l-1 h3" type="number" number-min="0" number-max="{{yjkc}}" ng-change="dl()" ng-model="form.dl" name="dl" placeholder="请输入预计充电量" required></div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="weui-cells">
+    <div class="weui-cell">
+      <div class="weui-cell__hd">充电费率</div>
+      <div class="weui-cell__bd text-right">{{data.fl}}元/度 </div>
+    </div>
+    <div class="weui-cell">
+      <div class="weui-cell__hd">服务费率</div>
+      <div class="weui-cell__bd text-right">{{data.pservice}}元/度</div>
+    </div>
+    <div class="weui-cell">
+      <div class="weui-cell__hd">预计可充</div>
+      <div class="weui-cell__bd text-right">{{ yjkc}}度</div>
+    </div>
+    <div class="weui-cell">
+      <div class="weui-cell__hd">钱包余额</div>
+      <div class="weui-cell__bd text-right">{{wallet.premain|je}}</div>
+    </div>
+    <div class="weui-cell">
+      <div class="weui-cell__hd">子账户余额</div>
+      <div class="weui-cell__bd text-right">{{wallet.subaccount|je}}</div>
+    </div>
+  </div>
+  <div class="weui-btn-area">
+    <button ng-click="submit(myForm)">立即充电</button>
+  </div>
+</form>

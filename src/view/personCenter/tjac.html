@@ -1,0 +1,54 @@
+<form name="myForm" novalidate>
+  <div class="weui-cells">
+    <label class="weui-cell">
+      <div class="weui-cell__hd">
+        <label class="weui-label">车牌类型</label>
+      </div>
+      <div class="weui-cell__bd">
+        <input type="text" class="weui-input" ng-model="form.plateType" name="cartypeId" id='picker-lx' placeholder="请选择" required/>
+      </div>
+      <div class="arrow-down "></div>
+    </label>
+    <label class="weui-cell weui-cell_access">
+      <div class="weui-cell__hd">
+        <span class="weui-label">车型</span>
+      </div>
+      <div class="weui-cell__bd">
+        <input type="text" class="weui-input"  name="carBrand" id='picker-car' placeholder="请选择" />
+      </div>
+      <div class="weui-cell__ft"></div>
+    </label>
+    <div class="weui-cell">
+      <div class="weui-cell__hd">
+        <label class="weui-label">车牌</label>
+      </div>
+      <div class="weui-cell__bd">
+        <div class="weui-flex">
+          <label class="text-right">
+            <input type="text" class="weui-input" style="width: 4rem" ng-model="form.carArea" name="plateType" id="picker-cp" />
+            <span class="arrow-down">&nbsp;</span>
+          </label>
+          <div class="weui-flex__item m-l-5"><input type="text" ng-model="form.carNum" name="carNumber" class="weui-input" placeholder="请输入车牌号" required/></div>
+        </div>
+      </div>
+    </div>
+    <label class="weui-cell">
+      <div class="weui-cell__hd">
+        <label class="weui-label">发动机号</label>
+      </div>
+      <div class="weui-cell__bd"><input type="text" class="weui-input" ng-model="form.engineNumber" name="engineNumber" placeholder="请输入发动机号" required/></div>
+    </label>
+    <label class="weui-cell">
+      <div class="weui-cell__hd">
+        <label class="weui-label">车架号</label>
+      </div>
+      <div class="weui-cell__bd"><input type="text" class="weui-input" ng-model="form.frameNumber" name="frameNumber" placeholder="请输入车架号" required/></div>
+    </label>
+  </div>
+  <div class="weui-btn-area">
+    <button ng-click="submit(myForm)">提交</button>
+  </div>
+</form>
+<div class="weui-agree text-center">
+  <span class="weui-agree__text">*以上车辆信息我们将严格保密</span>
+</div>

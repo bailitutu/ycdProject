@@ -1,0 +1,16 @@
+<div class="weui-cells-fg flexColumnContent weui-start cdk">
+  <div class="weui-cells no_pages" ng-if="data.lists.length == 0">
+    <img src="images/noPage_icon.png" alt="">
+    <p class="no_pages_title">您还没有充电卡哦~</p>
+  </div>
+
+  <div ng-repeat="x in data.lists" class="weui-cell" ng-class="{'zs':x.zx}" ng-if="data.lists.length > 0" >
+    <div class="weui-cell__hd" ui-sref="cdkxq({zx:x.zx ? '1': '2' ,kh:x.kh,type:x.type,id:x.id})" style="flex:3"> <h3>卡号：{{x.kh}}</h3><br><br>{{x.type}}</div>
+    <div class="weui-cell__ft">
+      <span ui-sref="xgcdkmm({id:x.id})" ng-if="!x.zx">修改密码</span>
+    </div>
+  </div>
+</div>
+<div class="weui-btn-area">
+  <button ui-sref="bdcdk">绑定充电卡</button>
+</div>

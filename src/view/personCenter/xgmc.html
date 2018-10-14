@@ -1,0 +1,13 @@
+<form name="myForm" novalidate>
+  <div class="weui-cells">
+    <div class="weui-cell">
+      <div class="weui-cell__hd"><label class="weui-label">用户名</label></div>
+      <div class="weui-cell__bd">
+        <input class="weui-input" type="text" ng-model="form.nickName" name="nickName" placeholder="请输入名称" required>
+      </div>
+    </div>
+  </div>
+  <div class="weui-btn-area">
+    <button ng-click="submit(myForm)">保存</button>
+  </div>
+</form>

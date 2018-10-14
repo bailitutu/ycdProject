@@ -1,0 +1,52 @@
+<div class="weui-cells">
+  <div class="weui-cell">
+    <div class="weui-cell__bd">
+      <h3>{{data.gunName}}</h3>
+            <span class="text-desc h5 lt-24">
+              终端编号：{{data.gunCode}}<br>
+              终端类型：{{data.gunType}}<br>
+              充电接口：{{data.gunNo | cdjk}}<br>
+              终端功率：{{data.terminalPower}}KW
+            </span>
+    </div>
+    <div class="weui-cell__ft">
+      <span class="text-primary">{{data.orderStatus  }}</span><br><br>
+      <span class="warning-label">{{data.chargingSpeed}}</span>
+    </div>
+  </div>
+</div>
+<div class="weui-cells">
+  <div class="weui-cell">
+    <div class="weui-cell__hd"><label class="weui-label">平均电流</label></div>
+    <div class="weui-cell__bd text-right">{{data.electricCurrent}}A</div>
+  </div>
+  <div class="weui-cell">
+    <div class="weui-cell__hd"><label class="weui-label">平均电压</label></div>
+    <div class="weui-cell__bd text-right">{{data.Voltage}}V</div>
+  </div>
+</div>
+<div class="weui-cells">
+  <div class="weui-cell">
+    <div class="weui-cell__hd"><label class="weui-label">当前费率</label></div>
+    <div class="weui-cell__bd text-right">{{data.feerate}}元/度</div>
+  </div>
+  <div class="weui-cell">
+    <div class="weui-cell__hd"><label class="weui-label">充电电量</label></div>
+    <div class="weui-cell__bd text-right">{{data.electricQuantity}}度</div>
+  </div>
+  <div class="weui-cell">
+    <div class="weui-cell__hd"><label class="weui-label">充电时长</label></div>
+    <div class="weui-cell__bd text-right">{{data.chargeTime}}</div>
+  </div>
+  <div class="weui-cell">
+    <div class="weui-cell__hd"><label class="weui-label">服务费</label></div>
+    <div class="weui-cell__bd text-right">￥{{data.serviceCharge}}</div>
+  </div>
+  <div class="weui-cell">
+    <div class="weui-cell__hd"><h3 class="weui-label">总计</h3></div>
+    <div class="weui-cell__bd text-right h3 text-danger">￥{{data.total}}</div>
+  </div>
+</div>
+<div class="weui-btn-area">
+  <button ui-sref="home">返回</button>
+</div>

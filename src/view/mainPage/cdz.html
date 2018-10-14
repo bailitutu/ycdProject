@@ -1,0 +1,67 @@
+
+<div class="weui-loadmore" ng-if="isLoading">
+  <i class="weui-loading"></i>
+  <span class="weui-loadmore__tips">正在连接设备</span>
+</div>
+<div class="header-cell line-height-base p-2" ng-if="!isLoading && !showEnd">
+  <img class="img-large" src="src/images/qc.png">
+  <p class="lt-30">当前电量（SOC）<span class="text-primary">{{data.soc}}</span> %<br>
+</div>
+<div class="weui-panel" ng-if="!isLoading && !showEnd">
+  <div class="weui-panel__hd">预充信息</div>
+  <div class="weui-panel__bd">
+    <div class="weui-cell" ng-if="data.typePre == '1'">
+      <div class="weui-cell__hd"><label class="weui-label">充电金额</label></div>
+      <div class="weui-cell__bd text-right">￥{{data.pricePre}}</div>
+    </div>
+    <div class="weui-cell" ng-if="data.typePre == '2'">
+      <div class="weui-cell__hd"><label class="weui-label">充电电量</label></div>
+      <div class="weui-cell__bd text-right">{{data.pricePre}}度</div>
+    </div>
+    <div class="weui-cell" ng-if="data.typePre == '3'">
+      <div class="weui-cell__hd"><label class="weui-label">预充结束时间</label></div>
+      <div class="weui-cell__bd text-right">{{data.pricePre}}</div>
+    </div>
+    <div class="weui-cell">
+      <div class="weui-cell__hd"><label class="weui-label">充电电流</label></div>
+      <div class="weui-cell__bd text-right">{{data.electricCurrent}}A</div>
+    </div>
+    <div class="weui-cell">
+      <div class="weui-cell__hd"><label class="weui-label">充电电压</label></div>
+      <div class="weui-cell__bd text-right">{{data.Voltage}}V</div>
+    </div>
+  </div>
+</div>
+<div class="weui-panel" ng-if="!isLoading && !showEnd">
+  <div class="weui-panel__hd">已充信息</div>
+  <div class="weui-panel__bd">
+    <div class="weui-cell">
+      <div class="weui-cell__hd"><label class="weui-label">当前费率</label></div>
+      <div class="weui-cell__bd text-right">{{data.feerate}}元/度</div>
+    </div>
+    <div class="weui-cell">
+      <div class="weui-cell__hd"><label class="weui-label">充电电量</label></div>
+      <div class="weui-cell__bd text-right">{{data.electricQuantity}}度</div>
+    </div>
+    <div class="weui-cell">
+      <div class="weui-cell__hd"><label class="weui-label">充电电费</label></div>
+      <div class="weui-cell__bd text-right">￥{{data.electricityFees}}</div>
+    </div>
+    <div class="weui-cell">
+      <div class="weui-cell__hd"><label class="weui-label">服务费</label></div>
+      <div class="weui-cell__bd text-right">￥{{data.serviceCharge}}</div>
+    </div>
+    <div class="weui-cell">
+      <div class="weui-cell__hd"><h3 class="weui-label">总计</h3></div>
+      <div class="weui-cell__bd text-right text-danger h3">￥{{data.total}}</div>
+    </div>
+  </div>
+</div>
+<div class="weui-btn-area" ng-if="!isLoading && !showEnd">
+  <button ng-click="submit()">结束充电</button>
+</div>
+
+<div class="weui-loadmore" ng-if="showEnd">
+  <i class="weui-loading"></i>
+  <span class="weui-loadmore__tips">正在结束充电，请稍候...</span>
+</div>

@@ -1,0 +1,21 @@
+<div style="height: 216px; overflow: hidden">
+  <img src="{{data.image}}" width="100%">
+</div>
+<div class="weui-cells" style="margin-top: -36px">
+  <div class="weui-cell weui-start">
+    <div class="weui-cell__bd">
+      <h3>{{data.title}}</h3>
+      <span ng-bind-html="data.desc|to_html"></span>
+      <p class="label-primary h5" style="margin: 10px auto">充{{data.cje}}送{{data.sje}}</p><br>
+      <span class="text-desc h5">活动时间：{{data.startDate}}~{{data.endDate}}</span>
+    </div>
+    <div class="weui-cell__ft text-center">
+      <p class="text-primary">{{data.status}}</p><br>
+      <span class="primary-label" ui-sref="zhcz({type:'3',bizId: data.bizId,artId:data.id})"  ng-if="data.status === '进行中'">去充值</span>
+    </div>
+  </div>
+</div>
+<div class="header-cell text-center lt-30 p-1">
+  <h3>{{data.title}}</h3>
+  <span class="text-desc">{{data.msg}}</span>
+</div>

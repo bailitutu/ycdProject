@@ -1,0 +1,17 @@
+<div class="weui-cells-fg">
+    <div class="weui-cells no_pages" ng-if="data.lists.length == 0" >
+    <img src="src/images/noPage_icon.png" alt="">
+    <p class="no_pages_title">暂无可用优惠券</p>
+    </div>
+    <div class="weui-cell weui-cell_access discount_item active" style="padding:0;"  ng-repeat="x in data.lists" >
+        <div class="weui-cell__hd" style="border-right:1px solid #eeeeee;padding:15px;width:35%;">
+            <h2 class="text-danger text-center">￥{{x.couponMoney}}</h2>
+            <p class="ellipsis h5 lt-30 c-333 text-center">满{{x.couponCondition }}元可用 </p>
+        </div>
+        <div class="weui-cell__bd discount_tip text-desc" >
+            <p class=" h5">每笔订单限用一张</p>
+            <p class="ellipsis  h5 lt-30">{{x.bizName}}专用 </p>
+            <p class=" h5">{{x.startTime.substring(0,10)}}至{{x.endTime.substring(0,10)}}</p>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,35 @@
+<!--<div class="header">-->
+  <!--<svg class="weui-tabbar__icon" viewBox="0 0 8 8">-->
+    <!--<use xlink:href="{{static.svgIcon+'#rq'}}"></use>-->
+  <!--</svg>-->
+  <!--<input class="weui-input input-small" date-picker type="text" value="全部">-->
+<!--</div>-->
+<div class="weui-cells-fg has-header flexColumnContent" my-update>
+  <div class="weui-cells no_pages" ng-show=" data.lists.length == 0" style="margin-top: 20px;">
+    <img src="images/noPage_icon.png" alt="">
+    <p class="no_pages_title">您还没有订单哦~</p>
+  </div>
+  <!--<div ng-repeat="x in data.lists" ui-sref="wdddxq({id:x.id})"  ng-click="checkDetail(x.id)" ng-show="data.lists.length > 0" class="weui-cell weui-cell_access">-->
+  <div ng-repeat="x in data.lists"   ng-show="data.lists.length > 0" class="weui-cell weui-cell_access" >
+    <div class="weui-cell__hd">
+      <img class="img__thumb img-circle" src="{{x.image}}" alt="">
+    </div>
+    <div class="weui-cell__bd" ng-click="checkDetail(x.id,x.state,x.orderType)">
+      <h3>{{x.desc}}</h3>
+      <p class="ellipsis text-desc h5 lt-30">{{x.yys}}</p>
+      <p class="text-desc h5">{{x.date}}</p>
+    </div>
+    <div class="weui-cell__ft noIcon" style="padding-right:0;">
+      <p class="lt-30" style="font-size:13px;color:#333333;">{{x.je|je}}</p>
+      <div class="label-primary"   ng-show="x.orderType == '1' && x.state == '1'">充电中</div>
+      <div class="label-primary"   ng-show="x.orderType == '1' &&x.state == '2'">计费中</div>
+      <div class="label-primary"  ng-click="payOrder(x.id,event)" ng-show="x.orderType == '2' && x.state == '1'">待支付</div>
+      <div class="label-primary"  ng-show="x.orderType == '2' && x.state == '2'">已支付</div>
+      <div class="label-primary" style="color:#dddddd;border:1px solid #dddddd"  ng-show="x.orderType == '1' && x.state == '4'">已完成</div>
+      <div class="label-primary"   ng-show="x.orderType == '1' && x.state == '5'" >异常结束</div>
+      <div class="label-primary"   ng-show="x.orderType == '1' && x.state == '6'" >预约订单</div>
+      <div class="label-primary"   ng-show="x.orderType == '1' && x.state == '7'" >取消预约</div>
+      <div class="label-primary"   ng-show="x.orderType == '1' && x.state == '8'" ng-click="endOrder(x.id)">结束充电</div>
+    </div>
+  </div>
+</div>

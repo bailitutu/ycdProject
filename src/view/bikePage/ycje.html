@@ -1,0 +1,59 @@
+<div class="weui-cells">
+  <div class="weui-cell">
+    <div class="weui-cell__bd">
+      <h3 class="lt-30">其他充值金额</h3>
+      <div class="weui-flex line-height-large">
+        <h3>￥</h3>
+        <div class="weui-flex__item">
+          <input class="weui-input p-l-1 h3" string-to-number ng-model="form.fee" type="number" placeholder="请输入金额" >
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="weui-cells weui-radio_btn">
+  <div class="weui-cell">
+    <div class="weui-cell__bd">
+      <h3 class="lt-30">充值金额</h3>
+    </div>
+  </div>
+  <div class="weui-cell text-center">
+    <div class="weui-cell__bd">
+      <div class="weui-flex">
+        <label class="weui-flex__item m-r_1 m-l_1 m-b-1">
+          <input class="weui-check" value="1" ng-model="form.fee" type="radio">
+          <div class="radio_btn h3">1元</div>
+        </label>
+        <label class="weui-flex__item m-r_1 m-l_1">
+          <input class="weui-check" value="2" ng-model="form.fee" type="radio">
+          <div class="radio_btn h3">2元</div>
+        </label>
+        <label class="weui-flex__item m-r_1 m-l_1">
+          <input class="weui-check" value="5" ng-model="form.fee" type="radio">
+          <div class="radio_btn h3" style="margin-right: 0">5元</div>
+        </label>
+      </div>
+      <div class="weui-flex">
+        <label class="weui-flex__item m-r_1 m-l_1">
+          <input class="weui-check" value="10" ng-model="form.fee" type="radio">
+          <div class="radio_btn h3">10元</div>
+        </label>
+        <label class="weui-flex__item m-r_1 m-l_1">
+          <input class="weui-check" value="20" ng-model="form.fee" type="radio">
+          <div class="radio_btn h3">20元</div>
+        </label>
+        <label class="weui-flex__item m-r_1 m-l_1">
+          <input class="weui-check" value="30" ng-model="form.fee" type="radio">
+          <div class="radio_btn h3" style="margin-right: 0">30元</div>
+        </label>
+      </div>
+    </div>
+  </div>
+
+</div>
+<div class="weui-btn-area" ng-show="!hasRecharge">
+  <button ng-click="submit()">立即充值</button>
+</div>
+<div class="weui-btn-area" ng-show="hasRecharge">
+  <button ng-click="recharge()">立即充电</button>
+</div>

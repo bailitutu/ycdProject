@@ -1,0 +1,115 @@
+<form name="myForm" novalidate>
+  <div class="weui-panel">
+    <div class="weui-panel__hd">请选择发票类型</div>
+    <div class="weui-panel__bd">
+      <div class="weui-media-box weui-media-box_appmsg weui-flex weui-radio_btn text-center">
+        <label class="weui-flex__item">
+          <input class="weui-check" value="1" ng-model="form.itypeInv" type="radio">
+          <div class="radio_btn" style="margin-right: 5px">
+            <h3>电子发票</h3>
+            最快5分钟开具
+          </div>
+        </label>
+        <label class="weui-flex__item">
+          <input class="weui-check" value="2" ng-model="form.itypeInv" type="radio" ng-click="ngIF()">
+          <div class="radio_btn" style="margin:0 0 0 5px">
+            <h3>纸质发票</h3>
+            预计5天内送达
+          </div>
+        </label>
+      </div>
+    </div>
+    <div class="weui-panel__ft">
+      <div class="weui-cell text-desc p-t-0">
+        *电子发票与纸质发票具有同等法律效率，可支持报销入账
+      </div>
+    </div>
+  </div>
+  <div class="weui-cells">
+    <div class="weui-cell weui-cells_checkbox">
+      <div class="weui-cell__hd"><label class="weui-label">抬头类型</label></div>
+      <div class="weui-cell__bd">
+        <div class="weui-flex text-center">
+          <label>
+            <input class="weui-check" value="0" ng-model="form.nature" type="radio">
+            <i class="weui-icon-checked"></i>
+            企业单位
+          </label>
+          <label class="weui-flex__item">
+            <input class="weui-check" value="1" ng-model="form.nature" type="radio">
+            <i class="weui-icon-checked"></i>
+            个人/非企业
+          </label>
+        </div>
+      </div>
+    </div>
+    <label class="weui-cell">
+      <div class="weui-cell__hd"><label class="weui-label">发票抬头</label></div>
+      <div class="weui-cell__bd">
+        <input class="weui-input" type="text" name="invname" ng-model="form.invname" placeholder="请输入全称" required>
+      </div>
+    </label>
+    <label ng-if="form.nature==0" class="weui-cell">
+      <div class="weui-cell__hd"><label class="weui-label">税号</label></div>
+      <div class="weui-cell__bd">
+        <input class="weui-input" type="text" name="invtax" ng-model="form.invtax" placeholder="请输入税号" required>
+      </div>
+    </label>
+    <div class="weui-cell">
+      <div class="weui-cell__hd"><label class="weui-label">发票内容</label></div>
+      <div class="weui-cell__bd">
+        <input class="weui-input" type="text" name="invdetail" ng-model="form.invdetail" placeholder="请输入发票内容" required>
+      </div>
+    </div>
+    <div class="weui-cell">
+      <div class="weui-cell__hd"><label class="weui-label">发票金额</label></div>
+      <div class="weui-cell__bd">{{form.invmoney|je}}</div>
+    </div>
+    <div class="weui-cell">
+      <div class="weui-cell__bd">
+        <textarea class="weui-textarea" ng-model="form.remarks " placeholder="（非必填）请说明问题以便我们提供更好的服务" rows="3"></textarea>
+        <!--<div class="weui-textarea-counter"><span>0</span>/200</div>-->
+      </div>
+    </div>
+  </div>
+  <div class="weui-cells">
+    <div ng-if="form.itypeInv == 2">
+
+      <label class="weui-cell">
+        <div class="weui-cell__hd"><label class="weui-label">收件人</label></div>
+        <div class="weui-cell__bd">
+          <input class="weui-input" type="text" name="maman" ng-model="form.maman" placeholder="请输入姓名" required>
+        </div>
+      </label>
+      <label class="weui-cell">
+        <div class="weui-cell__hd"><label class="weui-label">联系电话</label></div>
+        <div class="weui-cell__bd">
+          <input class="weui-input" type="number" name="maphone" string-to-number ng-model="form.maphone" placeholder="请输入手机号" required>
+        </div>
+      </label>
+      <label class="weui-cell">
+        <div class="weui-cell__hd"><label class="weui-label">所在地区</label></div>
+        <div class="weui-cell__bd">
+          <input class="weui-input" id="picker-city" type="text" name="area" ng-model="form.maaddr" value="浙江省 杭州市 拱墅区" placeholder="浙江省 杭州市 拱墅区" required>
+        </div>
+        <div class="arrow-down m-r-2"></div>
+      </label>
+      <label class="weui-cell">
+        <div class="weui-cell__hd"><label class="weui-label">详细地址</label></div>
+        <div class="weui-cell__bd">
+          <input class="weui-input" type="text" name="address" ng-model="form.addrDetail" placeholder="请输入详细地址" required>
+        </div>
+      </label>
+    </div>
+    <label class="weui-cell">
+      <div class="weui-cell__hd"><label class="weui-label">电子邮件</label></div>
+      <div class="weui-cell__bd">
+        <input class="weui-input" type="email" name="email" ng-model="form.email" placeholder="请输入email地址" required>
+      </div>
+    </label>
+  </div>
+  <div class="weui-btn-area">
+    <button ng-click="submit(myForm)">提交</button>
+    <!--<button ng-if="back" ng-click="backTo()">重新选择</button>-->
+  </div>
+</form>

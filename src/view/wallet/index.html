@@ -1,0 +1,35 @@
+<div class="header-cell bg1">
+  <div class="weui-flex">
+    <div class="weui-flex__item text-left p-1">
+      钱包余额（元）
+    </div>
+    <div class="weui-flex__item text-right p-1">
+      <span ui-sref="jjls">查看流水账</span>
+    </div>
+  </div>
+  <h1 class="p-2">{{data.premain|je}}</h1>
+  <div style="padding-bottom: 20px"><span ui-sref="zhcz({type:'1'})"  style="margin-right: 20px;" class="label-primary">充值</span><span ui-sref="sqtk" class="label-warning">申请退款</span></div>
+</div>
+<div class="weui-cells">
+  <div class="weui-cell weui-cell_access" ui-sref="zzhmx">
+    <div class="weui-cell__hd">
+      <label class="weui-label">子账户余额</label>
+    </div>
+    <div class="weui-cell__bd text-right text-danger">{{data.subaccount|je}}</div>
+    <div class="weui-cell__ft"></div>
+  </div>
+  <div class="weui-cell weui-cell_access" ui-sref="cdkmx">
+    <div class="weui-cell__hd">
+      <label class="weui-label">我的充电卡</label>
+    </div>
+    <div class="weui-cell__bd text-right">{{data.cardNumber || 0}}张</div>
+    <div class="weui-cell__ft"></div>
+  </div>
+  <div class="weui-cell weui-cell_access" ui-sref="yhq">
+    <div class="weui-cell__hd">
+      <label class="weui-label">我的优惠券</label>
+    </div>
+    <div class="weui-cell__bd text-right">{{data.discountNum || 0}}张</div>
+    <div class="weui-cell__ft"></div>
+  </div>
+</div>

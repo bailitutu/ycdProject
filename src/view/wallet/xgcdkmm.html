@@ -1,0 +1,19 @@
+<form name="myForm" novalidate>
+  <div class="weui-cells">
+    <label class="weui-cell">
+      <div class="weui-cell__hd">
+        <label class="weui-label">原始密码</label>
+      </div>
+      <div class="weui-cell__bd"><input class="weui-input" type="password" ng-model="form.oldPwd" name="oldPwd" placeholder="请输入原始密码" required></div>
+    </label>
+    <label class="weui-cell">
+      <div class="weui-cell__hd">
+        <label class="weui-label">新密码</label>
+      </div>
+      <div class="weui-cell__bd"><input class="weui-input" type="password" ng-model="form.newPwd" name="newPwd" placeholder="请输入新密码" required></div>
+    </label>
+  </div>
+  <div class="weui-btn-area">
+    <button ng-click="submit(myForm)">确定</button>
+  </div>
+</form>

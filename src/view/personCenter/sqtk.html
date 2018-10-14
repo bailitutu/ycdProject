@@ -1,0 +1,44 @@
+<form name="myForm" novalidate>
+  <div class="weui-cells">
+    <div class="weui-cell">
+      <div class="weui-cell__hd"><label class="weui-label">账户余额</label></div>
+      <div class="weui-cell__bd">{{data.premain|je}}</div>
+    </div>
+    <div class="weui-cell">
+      <div class="weui-cell__hd"><label class="weui-label">可退款余额</label></div>
+      <div class="weui-cell__bd">{{data.refundableAmount|je}}</div>
+    </div>
+    <div class="weui-cell">
+      <div class="weui-cell__hd"><label class="weui-label">已开票</label></div>
+      <div class="weui-cell__bd r-text">{{data.invoiceMoney|je}}</div>
+    </div>
+  </div>
+  <div class="weui-cells">
+    <label class="weui-cell">
+      <div class="weui-cell__hd"><label class="weui-label">退款金额</label></div>
+      <div class="weui-cell__bd">
+        <input class="weui-input" ng-model="form.pricePre" name="pricePre" number-max="{{data.premain-data.invoiceMoney}}" type="number" placeholder="请输入金额" required></div>
+    </label>
+    <div class="weui-cell">
+      <div class="weui-cell__hd"><label class="weui-label">手续费</label></div>
+      <div class="weui-cell__bd">{{((form.pricePre*data.paramset*0.01||0)|tofixed2)|je}}</div>
+    </div>
+    <div class="weui-cell">
+      <div class="weui-cell__hd"><label class="weui-label">实际退款</label></div>
+      <div class="weui-cell__bd">{{((form.pricePre-form.pricePre*data.paramset*0.01||0)|tofixed2)|je}}</div>
+    </div>
+    <div class="weui-cell">
+      <div class="weui-cell__hd"><label class="weui-label">退款类型</label></div>
+      <div class="weui-cell__bd">充值退款</div>
+    </div>
+    <div class="weui-cell">
+      <div class="weui-cell__bd">
+        <textarea class="weui-textarea" placeholder="更多信息（非必填）（填写备注、地址等）" ng-model="form.remark" name="remark" rows="3"></textarea>
+        <!--<div class="weui-textarea-counter"><span>0</span>/200</div>-->
+      </div>
+    </div>
+  </div>
+  <div class="weui-btn-area">
+    <button ng-click="submit(myForm)">提交</button>
+  </div>
+</form>

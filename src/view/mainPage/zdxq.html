@@ -1,0 +1,24 @@
+<div class="weui-cells-fg overflow-y" my-update>
+  <div class="weui-cells no_pages" ng-if="data.lists.length == 0">
+    <img src="src/images/noPage_icon.png" alt="">
+    <p class="no_pages_title">暂无可用充电枪~</p>
+  </div>
+  <div class="weui-cell weui-cell_access" ng-repeat="x in data.lists"   ui-sref="zbcd({id:x.id})">
+    <div class="weui-cell__bd">
+      <h3>{{x.name}}</h3>
+            <span class="text-desc h5 lt-24">
+              终端编号：{{x.zdbh}}<br>
+              终端类型：{{x.zdlx}}<br>
+              充电接口：{{x.cdjk}}<br>
+              终端功率：{{x.zdgl}}KW
+            </span>
+    </div>
+    <div class="weui-cell__ft noIcon" style="position: relative;">
+      <span ng-bind-html="x.slType|slType"></span><br><br>
+      <div style="position: relative;">
+        <img class="img-min" ng-src="{{ x.status|stateImg}}">
+      </div>
+      <div style="font-size: 10px;position: display:block;width: 100%;text-align: center;" >{{ x.status|stateText}}</div>
+    </div>
+  </div>
+</div>

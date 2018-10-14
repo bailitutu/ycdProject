@@ -1,0 +1,67 @@
+.car_type_page{
+  height: 100%;
+  width: 100%;
+  padding-left: 70px;
+  position: relative;
+  overflow: hidden;
+  .car_type_left{
+    width: 70px;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 100;
+    overflow-y: auto;
+    overflow-x: hidden;
+    background:#fff;
+    .car_brandList{
+      width: 100%;
+      overflow: hidden;
+      >li{
+        height:41px;
+        width:100%;
+        color:#666666;
+        text-align: center;
+        line-height: 41px;
+      }
+      >li.active{
+        color:@p-color ;
+      }
+      li.title{
+        height:26px;
+        background:#a2d3ff;
+        color: #fff;
+        line-height: 26px;
+      }
+    }
+
+  }
+  ::-webkit-scrollbar{
+    padding-left:100px;
+    display: none;
+  }
+  .car_type_right{
+    width: 100%;
+    height: 100%;
+    overflow-y: auto;
+    overflow-x: hidden;
+    background:#fff;
+    border-left: 1px solid #cce0ff;
+    .car_type_list{
+      overflow: hidden;
+      width: 100%;
+      >li{
+        height:44px;
+        border-bottom: 1px solid #cce0ff;
+        p{
+          height: 100%;
+          line-height: 44px;
+          color:#666666;
+          font-size:13px;
+          padding-left:29px;
+        }
+      }
+    }
+  }
+
+}

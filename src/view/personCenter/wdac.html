@@ -1,0 +1,23 @@
+<div class="weui-cells-fg weui-start flexColumnContent" my-update>
+    <div class="weui-cells no_pages" ng-if="data.lists.length == 0">
+        <img src="images/noPage_icon.png" alt="">
+        <p class="no_pages_title">您还没有爱车哦~</p>
+    </div>
+
+    <div ng-repeat="x in data.lists" ng-if="data.lists.length > 0" class="weui-cell">
+        <div class="weui-cell__bd">
+            <h3 class="lt-30" style="font-size:15px;color:#333333;">{{x.name}}</h3>
+            <p class="weui-media-box__desc">{{x.bandname}}<span style="color:#1791ff;margin-left:10px;">（{{x.desc}}）</span></p>
+        </div>
+        <div class="weui-cell__ft">
+            <a class="weui-form-preview__btn" ng-click="del(x.id,$index)">
+                <div class="weui-tabbar__icon">
+                    <img src="images/icon_delete.png" alt="">
+                </div>
+            </a>
+        </div>
+    </div>
+</div>
+<div class="weui-btn-area">
+    <button ui-sref="tjac">添加爱车</button>
+</div>

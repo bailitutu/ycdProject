@@ -1,0 +1,25 @@
+.header-shadow {
+  box-shadow: @shadow;
+  border-radius: 0 0 @border-radius-base @border-radius-base;
+}
+
+.header {
+  padding: @size_1;
+  margin-bottom: @size-1;
+  background-color: @white;
+  text-align: center;
+  font-size: @size-2;
+  .header-shadow;
+}
+
+.radius-shadow(@size:@border-radius-base) {
+  box-shadow: @shadow;
+  border-radius: @size;
+}
+
+.header-cell {
+  text-align: center;
+  margin: @size-1;
+  background-color: @white;
+  .radius-shadow;
+}

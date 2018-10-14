@@ -1,0 +1,17 @@
+<div class="weui-cells-fg">
+  <div class="weui-cells no_pages" ng-if="data.lists.length == 0">
+    <img src="images/noPage_icon.png" alt="">
+    <p class="no_pages_title">您还没有开票记录哦~</p>
+  </div>
+  <div class="weui-cell" ng-repeat="x in data.lists" ng-if="data.lists.length > 0">
+    <div class="weui-cell__bd">
+      <h3>{{x.type|fplx}}</h3>
+      <h4 class="lt-24">{{x.name}}</h4>
+      <p class="text-desc h5">{{x.date}}</p>
+    </div>
+    <div class="weui-cell__ft">
+      <span class="text-desc">{{ x.status | fpStatus}}</span><br><br>
+      <h2 class="text-danger">¥{{x.je}}</h2>
+    </div>
+  </div>
+</div>

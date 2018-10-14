@@ -1,0 +1,27 @@
+<div class="weui-flex header" style="margin-bottom:0;">
+  <span class="weui-flex__item btn-1 br-r-1" ui-sref="sqtk">
+    申请退款
+  </span>
+  <!--<label class="weui-flex__item">-->
+    <!--<svg class="weui-tabbar__icon" viewBox="0 0 8 8">-->
+      <!--<use xlink:href="{{static.svgIcon+'#rq'}}"></use>-->
+    <!--</svg>-->
+    <!--<input type="text" class="weui-input input-small" date-picker value="全部">-->
+  <!--</label>-->
+</div>
+<div class="weui-cells-fg has-header flexColumnContent" my-update style="padding-top:10px;">
+  <div class="weui-cells no_pages" ng-if="data.lists.length == 0" >
+    <img src="images/noPage_icon.png" alt="">
+    <p class="no_pages_title">还没有退款记录哦~</p>
+  </div>
+  <div ng-repeat="x in data.lists" class="weui-cell" ng-if="data.lists.length > 0" >
+    <!--<div class="weui-cell__hd">-->
+      <!--<img class="img__thumb img-rounded" src="{{x.image}}" alt="">-->
+    <!--</div>-->
+    <div class="weui-cell__bd">
+      <h3>充值退款</h3>
+      <p class="weui-media-box__desc"><span class="lt-30">【退回微信】</span><br>{{x.date}}</p>
+    </div>
+    <div class="weui-cell__ft"><span class="text-primary">{{x.state|ddzt}}</span><br><br>{{x.je|je}}</div>
+  </div>
+</div>
